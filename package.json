@@ -1,0 +1,26 @@
+{
+  "name": "super_node_app",
+  "version": "1.0.0",
+  "description": "Backend application for super_angular_app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/js"
+  },
+  "author": "Jessica Turner",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-flash-messages": "^0.1.1",
+    "express-lib": "^0.1.1",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.5.3",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.0"
+  }
+}
