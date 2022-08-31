@@ -11,7 +11,6 @@ const {v4: uuidv4} = require("uuid");
 router.get('/', async (req, res) => {
     try {
         console.log("super working")
-        res.send("super working")
     const response = await Super.find({})
     res.send({ data: response });
     } catch (error) {
@@ -20,19 +19,19 @@ router.get('/', async (req, res) => {
 
 })
 
-// router.post('/', async (req, res) => {
-//     try {
-//         console.log(req.body)
+router.post('/', async (req, res) => {
+    try {
+        console.log(req.body)
 
-//         const newSuper = new Super({ ...req.body, id: uuidv4() })
-//         const response = await newSuper.save();
+        const newSuper = new Super({ ...req.body, id: uuidv4() })
+        const response = await newSuper.save();
   
-//         res.send({data: response});
-//     } catch (error) {
+        res.send({data: response});
+    } catch (error) {
 
-//         res.send({error: error.message})
-//         res.json({ error: err })
+        res.send({error: error.message})
 
-//     }
-// })
+
+    }
+})
 module.exports = router
