@@ -2,8 +2,8 @@ const express = require ('express');
 const Super = require("../super-module")
 const router = express.Router();
 const {v4: uuidv4} = require("uuid");
-// const req = require('express/lib/request');
-// const { acceptsEncodings } = require('express/lib/request');
+const req = require('express/lib/request');
+const { acceptsEncodings } = require('express/lib/request');
 
 
 
@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
         console.log("super working")
     const response = await Super.find({})
     res.send({ data: response });
+    // res.json(data)
     } catch (error) {
         res.send({error: error.message})
     }

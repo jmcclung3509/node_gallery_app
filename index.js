@@ -1,14 +1,17 @@
-const express = require ('express')
-const cors = require('cors')
+const express = require('express')
+const router = require('./application')
 const bodyParser = require('body-parser')
 const env = require('dotenv')
 const session = require('express-session')
-const db = require('./db')
-const router = require('./application');
 const superRouter = require('./application/pages-routes')
+const db = require('./db')
+const cors = require('cors')
 
+
+
+env.config()
 const app = express()
-const PORT = process.env.PORT || 3002
+const PORT = process.env.PORT || 3015
 
 db.bootstrap();
 app.use(cors())
