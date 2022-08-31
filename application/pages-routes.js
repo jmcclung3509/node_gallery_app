@@ -1,5 +1,5 @@
 const express = require ('express');
-const Super = require('../super-module');
+const Super = require("../super-module")
 const router = express.Router();
 const {v4: uuidv4} = require("uuid");
 // const req = require('express/lib/request');
@@ -10,6 +10,8 @@ const {v4: uuidv4} = require("uuid");
 
 router.get('/', async (req, res) => {
     try {
+        console.log("super working")
+        res.send("super working")
     const response = await Super.find({})
     res.send({ data: response });
     } catch (error) {

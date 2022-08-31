@@ -8,7 +8,7 @@ const router = require('./application');
 const superRouter = require('./application/pages-routes')
 
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3002
 
 db.bootstrap();
 app.use(cors())

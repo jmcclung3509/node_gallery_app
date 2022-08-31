@@ -9,11 +9,11 @@ module.exports = mongoose.Schema({
     weakness: String,
     description: String,
     appearance: String,
-    category: {
-        type: String,
-        enum: ['Superhero', 'Villain', 'Magical Beast'],
-        default: 'Magical Beast'
+    // category: {
+    //     type: String,
+    //     enum: ['Superhero', 'Villain', 'Magical Beast'],
+    //     default: 'Magical Beast'
 
-    }
+    // }
 
 })
