@@ -7,5 +7,5 @@ module.exports = mongoose.Schema({
     title: String,
     createdBy: String,
     description: String,
-    date: Date,
+    date: String
 })
