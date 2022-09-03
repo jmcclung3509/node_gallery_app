@@ -1,5 +1,5 @@
 const express = require ('express');
-const Super = require("../super-module")
+const Art = require("../art-module")
 const router = express.Router();
 const {v4: uuidv4} = require("uuid");
 const req = require('express/lib/request');
@@ -10,8 +10,8 @@ const { acceptsEncodings } = require('express/lib/request');
 
 router.get('/', async (req, res) => {
     try {
-        console.log("super working")
-    const response = await Super.find({})
+        console.log("art working")
+    const response = await Art.find({})
     res.send({ data: response });
     // res.json(data)
     } catch (error) {
@@ -21,16 +21,14 @@ router.get('/', async (req, res) => {
 })
 router.get('/search', async (req, res) => {
 
-    const data = await Super.find({
+    const data = await Art.find({
         $or: [
-            { name: { '$regex': req.query.dsearch } },
+            { title: { '$regex': req.query.dsearch } },
             { description: { '$regex': req.query.dsearch } },
-            { powers: { '$regex': req.query.dsearch } },
-            { weakness: { '$regex': req.query.dsearch } },
-            { category: { '$regex': req.query.dsearch } },
-            { appearance: { '$regex': req.query.dsearch } },
-            { description: { '$regex': req.query.dsearch } },
-            { aka: { '$regex': req.query.dsearch } }
+            { createdBy: { '$regex': req.query.dsearch } },
+            { date: { '$regex': req.query.dsearch } },
+           
+   
         ]
     })
     console.log(data)
@@ -44,14 +42,14 @@ router.post('/search', async (req, res) => {
 
 router.get('/delete/:id', async (req, res) => {
     const id = req.params['id'];
-    let response = await Super.deleteOne({ id })
+    let response = await Art.deleteOne({ id })
     // req.flash("success", 'Record deleted');
-    res.send('/super');
+    res.send('/art');
 
 })
 router.get('/edit/:id', async (req, res) => {
     const id = req.params['id'];
-    const data = await Super.findOne({ id });
+    const data = await Art.findOne({ id });
 
     res.send('edit-page', {
         data,
@@ -62,9 +60,9 @@ router.get('/edit/:id', async (req, res) => {
 router.post('/edit-page/:id', async (req, res) => {
     const id = req.params['id'];
     const payload = req.body;
-    const response = await Super.updateOne({ id }, payload);
+    const response = await Art.updateOne({ id }, payload);
     // res.send(payload)
-    res.send('/super');
+    res.send('/art');
 
 
 });
@@ -76,8 +74,8 @@ router.post('/', async (req, res) => {
     try {
         console.log(req.body)
 
-        const newSuper = new Super({ ...req.body, id: uuidv4() })
-        const response = await newSuper.save();
+        const newArt= new Art({ ...req.body, id: uuidv4() })
+        const response = await newArt.save();
   
         res.send({data: response});
     } catch (error) {
