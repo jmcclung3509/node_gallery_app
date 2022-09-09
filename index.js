@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const env = require('dotenv')
 const session = require('express-session')
 const artRouter = require('./application/pages-routes')
-const db = require('./db')
+const db = require('./db/db')
 const cors = require('cors')
 
 
